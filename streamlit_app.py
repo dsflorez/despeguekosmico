@@ -34,7 +34,7 @@ if st.button("¡QUE DESPEGUE ESTA CHIMBA!"):
         st.write("Saliendo de la atmósfera...")
         
     # Lógica de niveles
-    resultado = random.randint(1, 6)
+    resultado = random.randint(1, 3)
     planetas = {
         1: ("Tierra 🌍", "+1 Pola", "¡Breve, mor! Una Urano pa' la sed."),
         2: ("Marte 🔴", "+2 Polas", "¡Melo! El margen va subiendo."),
