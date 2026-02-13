@@ -59,7 +59,7 @@ cajas = st.number_input("Cajas:", min_value=1, step=1)
 if st.button("¡QUE DESPEGUE ESTe PARCHE!"):
     contenedor_animacion = st.empty()
     ruta_espacial = ["Tierra 🌍", "Marte 🔴", "Júpiter 🟠", "Saturno 🪐", "Urano 💎", "Neptuno 🔵"]
-    resultado_idx = random.randint(0, 3)
+    resultado_idx = random.randint(0, 2)
 
     # Simulación de vuelo gráfico
     for i in range(resultado_idx + 1):
