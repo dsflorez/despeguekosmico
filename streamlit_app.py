@@ -49,5 +49,5 @@ if st.button("¡QUE DESPEGUE ESTA CHIMBA!"):
     st.success(f"PREMIO: {premio}")
     
     # Mostramos el mockup de la pola
-    st.image("pola.jpg", width=400)
+    st.image("pola.png", width=400)
     st.info(mensaje)
