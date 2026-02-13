@@ -2,78 +2,70 @@ import streamlit as st
 import random
 import time
 
-# Configuración de página
+# Configuración de marca
 st.set_page_config(page_title="Área Kósmica - Despegue", layout="centered")
 
-# CSS Corregido y Optimizado
+# CSS Corporativo - Verde #1A493A y Crema #E5D076
 st.markdown("""
     <style>
-    .stApp {
-        background-color: #1A493A; /* Verde Profundo */
-    }
-    h1, h2, h3, p, span, label {
-        color: #E5D076 !important; /* Crema */
-    }
-    /* Estilo del Botón - Forzando visibilidad del texto */
+    .stApp { background-color: #1A493A; }
+    h1, h2, h3, p, span, label { color: #E5D076 !important; }
     div.stButton > button {
         background-color: #E5D076 !important;
-        color: #1A493A !important; /* Texto en verde oscuro para contraste */
+        color: #1A493A !important; 
         font-weight: 900 !important;
-        font-size: 20px !important;
-        border-radius: 10px;
-        border: 2px solid #E5D076;
-        height: 3em;
+        font-size: 24px !important;
+        border-radius: 12px;
         width: 100%;
-        transition: 0.3s;
-    }
-    div.stButton > button:hover {
-        background-color: #304244 !important; /* Cambio a Gris Azulado al pasar el mouse */
-        color: #E5D076 !important;
+        height: 3em;
     }
     </style>
 """, unsafe_allow_html=True)
 
 st.title("🚀 DESPEGUE KÓSMICO")
-st.write("¿Pola o miedo? Vamos al espacio.")
+st.write("Un sabor de otro planeta.")
 
-# Entrada del comercial para cajas de 24 polas
-cajas = st.number_input("Cajas de 24 vendidas:", min_value=1, step=1)
+# Control de ventas en COP
+cajas = st.number_input("Cajas de 24 vendidas ($240.000 COP):", min_value=1, step=1)
 
 if st.button("¡QUE DESPEGUE ESTA CHIMBA!"):
-    # Definición de la ruta espacial
-    ruta = ["Tierra 🌍", "Marte 🔴", "Júpiter 🟠", "Saturno 🪐", "Urano 💎", "Neptuno 🔵"]
-    
-    # Lógica de niveles (1 a 6)
-    resultado_idx = random.randint(0, 5) 
-    
-    # Animación gráfica de "Saltos"
-    contenedor_viaje = st.empty()
+    contenedor_animacion = st.empty()
+    ruta_espacial = ["Tierra 🌍", "Marte 🔴", "Júpiter 🟠", "Saturno 🪐", "Urano 💎", "Neptuno 🔵"]
+    resultado_idx = random.randint(0, 5)
+
+    # Simulación de vuelo gráfico
     for i in range(resultado_idx + 1):
-        planeta_actual = ruta[i]
-        contenedor_viaje.markdown(f"### 🚀 El cohete está saltando a: **{planeta_actual}**")
-        time.sleep(0.8) # Pausa para crear tensión
-    
-    # Datos de premios
+        for frame in range(1, 12):
+            estela = "." * frame
+            contenedor_animacion.markdown(f"### 🚀{estela} Surcando hacia **{ruta_espacial[i]}**")
+            time.sleep(0.06)
+        time.sleep(0.3) 
+
+    # Diccionario de premios
     premios = {
-        0: ("Tierra 🌍", "+1 Pola", "¡Breve, mor! Una Urano pa' la sed."),
-        1: ("Marte 🔴", "+2 Polas", "¡Melo! El margen va subiendo."),
-        2: ("Júpiter 🟠", "+3 Polas", "¡Ufff, qué chimba! Coronó el trío."),
-        3: ("Saturno 🪐", "+2 Polas + Merch", "¡Elegancia! Portavasos nuevos."),
-        4: ("Urano 💎", "+2 Polas + Vaso", "¡Llegó a casa! Vaso oficial ÁK."),
-        5: ("Neptuno 🔵", "+3 Polas + Kit", "¡CORONÓ EL SISTEMA! El propio patrón.")
+        0: ("Tierra 🌍", "1 Pola", "¡Breve, mor! Una Urano pa' la sed."),
+        1: ("Marte 🔴", "2 Polas", "¡Melo! El margen va subiendo."),
+        2: ("Júpiter 🟠", "3 Polas", "¡Ufff, qué chimba! Coronó el trío."),
+        3: ("Saturno 🪐", "2 Polas + Merch", "¡Elegancia! Portavasos nuevos."),
+        4: ("Urano 💎", "2 Polas + Vaso", "¡Llegó a casa! Vaso oficial ÁK."),
+        5: ("Neptuno 🔵", "3 Polas + Kit", "¡CORONÓ EL SISTEMA! El propio patrón.")
     }
     
     planeta, premio, mensaje = premios[resultado_idx]
     
-    # RESULTADO FINAL
+    # Resultado Final
     st.balloons()
-    st.header(f"📍 Aterrizaje en: {planeta}")
-    st.subheader(f"🎁 RECOMPENSA: {premio}")
+    contenedor_animacion.header(f"📍 Aterrizaje: {planeta}")
+    st.subheader(f"🎁 PREMIO: {premio}")
     
-    # Imagen de la pola Urano
+    # Imagen local pola.png
     try:
-        st.image("pola.png", width=450)
+        st.image("pola.png", width=400)
     except:
-        st.error("No se encontró la imagen 'mock up pola final.jpg'")
+        st.error("⚠️ No se encontró 'pola.png' en el repositorio.")
         
     st.success(mensaje)
+
+    # Botón de reinicio para el comercial
+    if st.button("Registrar otra venta"):
+        st.rerun()
