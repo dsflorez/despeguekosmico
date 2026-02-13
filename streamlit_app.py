@@ -56,7 +56,7 @@ st.write("Un sabor de otro planeta.")
 # Control de ventas en COP
 cajas = st.number_input("Cajas:", min_value=1, step=1)
 
-if st.button("¡QUE DESPEGUE ESTA CHIMBA!"):
+if st.button("¡QUE DESPEGUE ESTe PARCHE!"):
     contenedor_animacion = st.empty()
     ruta_espacial = ["Tierra 🌍", "Marte 🔴", "Júpiter 🟠", "Saturno 🪐", "Urano 💎", "Neptuno 🔵"]
     resultado_idx = random.randint(0, 5)
