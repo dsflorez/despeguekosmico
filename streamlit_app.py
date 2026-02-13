@@ -5,19 +5,38 @@ import time
 # Configuración de marca
 st.set_page_config(page_title="Área Kósmica - Despegue", layout="centered")
 
-# CSS Corporativo - Verde #1A493A y Crema #E5D076
+# Inyección de CSS con máxima prioridad
 st.markdown("""
     <style>
-    .stApp { background-color: #1A493A; }
-    h1, h2, h3, p, span, label { color: #E5D076 !important; }
+    /* Fondo de la App */
+    .stApp { 
+        background-color: #1A493A !important; 
+    }
+    
+    /* Forzar color de todos los textos generales */
+    h1, h2, h3, p, span, label, .stMarkdown { 
+        color: #E5D076 !important; 
+    }
+
+    /* BOTÓN: Aquí es donde forzamos la visibilidad de la letra */
     div.stButton > button {
-        background-color: #E5D076 !important;
-        color: #1A493A !important; 
-        font-weight: 900 !important;
-        font-size: 24px !important;
-        border-radius: 12px;
-        width: 100%;
-        height: 3em;
+        background-color: #E5D076 !important; /* Fondo Crema */
+        color: #1A493A !important;           /* Texto Verde Oscuro */
+        font-weight: 900 !important;          /* Letra extra negrita */
+        font-size: 24px !important;           /* Tamaño grande */
+        text-transform: uppercase !important; /* Todo en mayúsculas */
+        border-radius: 12px !important;
+        border: 3px solid #E5D076 !important;
+        height: 80px !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    /* Efecto al pasar el mouse para que el comercial sepa que hizo clic */
+    div.stButton > button:hover {
+        background-color: #FFFFFF !important;
+        color: #1A493A !important;
+        border-color: #FFFFFF !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -35,7 +54,7 @@ with col2:
 st.write("Un sabor de otro planeta.")
 
 # Control de ventas en COP
-cajas = st.number_input("Cajas de 24 vendidas ($240.000 COP):", min_value=1, step=1)
+cajas = st.number_input("Cajas:", min_value=1, step=1)
 
 if st.button("¡QUE DESPEGUE ESTA CHIMBA!"):
     contenedor_animacion = st.empty()
