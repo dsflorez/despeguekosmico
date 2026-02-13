@@ -23,6 +23,15 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🚀 DESPEGUE KÓSMICO")
+
+# Centrar el logo circular
+col1, col2, col3 = st.columns([1,2,1])
+with col2:
+    try:
+        st.image("logo.png", width=150)
+    except:
+        st.write("🌌 **ÁREA KÓSMICA**")
+
 st.write("Un sabor de otro planeta.")
 
 # Control de ventas en COP
