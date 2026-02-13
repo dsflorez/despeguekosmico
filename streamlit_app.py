@@ -59,7 +59,7 @@ cajas = st.number_input("Cajas:", min_value=1, step=1)
 if st.button("¡QUE DESPEGUE ESTe PARCHE!"):
     contenedor_animacion = st.empty()
     ruta_espacial = ["Tierra 🌍", "Marte 🔴", "Júpiter 🟠", "Saturno 🪐", "Urano 💎", "Neptuno 🔵"]
-    resultado_idx = random.randint(0, 5)
+    resultado_idx = random.randint(0, 3)
 
     # Simulación de vuelo gráfico
     for i in range(resultado_idx + 1):
@@ -74,9 +74,9 @@ if st.button("¡QUE DESPEGUE ESTe PARCHE!"):
         0: ("Tierra 🌍", "1 Pola", "¡Breve, mor! Una Urano pa' la sed."),
         1: ("Marte 🔴", "2 Polas", "¡Melo! El margen va subiendo."),
         2: ("Júpiter 🟠", "3 Polas", "¡Ufff, qué chimba! Coronó el trío."),
-        3: ("Saturno 🪐", "2 Polas + Merch", "¡Elegancia! Portavasos nuevos."),
-        4: ("Urano 💎", "2 Polas + Vaso", "¡Llegó a casa! Vaso oficial ÁK."),
-        5: ("Neptuno 🔵", "3 Polas + Kit", "¡CORONÓ EL SISTEMA! El propio patrón.")
+        3: ("Saturno 🪐", "4 Polas + Merch", "¡Elegancia! Portavasos nuevos."),
+        4: ("Urano 💎", "5 Polas + Vaso", "¡Llegó a casa! Vaso oficial ÁK."),
+        5: ("Neptuno 🔵", "6 Polas + Kit", "¡CORONÓ EL SISTEMA! El propio patrón.")
     }
     
     planeta, premio, mensaje = premios[resultado_idx]
